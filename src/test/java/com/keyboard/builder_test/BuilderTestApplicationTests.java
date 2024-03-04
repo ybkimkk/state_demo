@@ -42,13 +42,13 @@ class BuilderTestApplicationTests {
     void normalTest() {
         OrderRequestEntity order = initRequest();
         if (OrderStatus.INIT.equals(order.getStatus()) && OrderEvents.PAY.equals(order.getEvent())) {
-            //TODO PAY ENVENT
+            //TODO PAY EVENT
             log.info(JSON.toJSONString(R.ok("pay action: request success!")));
         } else if (OrderStatus.PAYED.equals(order.getStatus()) && OrderEvents.SHIPPING.equals(order.getEvent())) {
-            //TODO SHIPPING ENVENT
+            //TODO SHIPPING EVENT
             log.info(JSON.toJSONString(R.ok("shipping action: request success!")));
         } else if (OrderStatus.SHIPPED.equals(order.getStatus()) && OrderEvents.RECEIVE.equals(order.getEvent())) {
-            //TODO RECEIVE ENVENT
+            //TODO RECEIVE EVENT
             log.info(JSON.toJSONString(R.ok("receive action: request success!")));
         } else {
             //TODO ERROR ACTION
@@ -84,7 +84,7 @@ class BuilderTestApplicationTests {
     }
 
     private Map<OrderEvents, OrderEventAction> getOrderStrategy() {
-        HashMap<OrderEvents, OrderEventAction> map = new HashMap<>();
+        Map<OrderEvents, OrderEventAction> map = new HashMap<>();
         map.put(OrderEvents.PAY, orderPayEventAction);
         map.put(OrderEvents.SHIPPING, orderShippingEventAction);
         map.put(OrderEvents.RECEIVE, orderReceiveEventAction);
