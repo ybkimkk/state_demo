@@ -73,6 +73,7 @@ class BuilderTestApplicationTests {
         OrderEventAction orderEventAction = orderStrategy.get(order.getEvent());
         if (Objects.isNull(orderEventAction)) {
             log.error("request fail!");
+            return;
         }
 
         boolean process = orderEventAction.process();
@@ -98,7 +99,5 @@ class BuilderTestApplicationTests {
         order.setEvent(OrderEvents.PAY);
         return order;
     }
-
-
 
 }
